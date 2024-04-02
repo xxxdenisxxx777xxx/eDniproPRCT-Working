@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family:DniproCity;
+    src: url('./assets/fonts/DNIPROCITY-REGULAR.OTF') format('opentype');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family:DniproCity;
+    src: url('./assets/fonts/DNIPROCITY-BOLD.OTF') format('opentype');
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family:DniproCity;
+    src: url('./assets/fonts/DNIPROCITY-MEDIUM.OTF') format('opentype');
+    font-weight: 700;
+  }
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: start; 
+  align-items: center;
+  height: 100vh;
+  font-family: 'DniproCity';
+}
+
+.img-header {
+  width: 90%;
+  max-width: 100%;
+}
+
+.text-title {
+  margin-top: 5%;
+  font-size: 25px;
+  font-weight:500 ;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  position: relative;
+}
+
+.search-input {
+  width: 89%; 
+  margin-top: 3%;
+  padding: 15px 20px; 
+  height: 7%;
+  border: 2px solid #3664b0; 
+  border-radius: 7px; 
+  font-size: 16px;
+  color: #1e5bff;
+  outline: none; 
+}
+
+.search-container::after {
+  content: url('путь_к_вашему_изображению_иконки_поиска');
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.search-input:focus {
+  border-color: #0a367f;
+}
+
+.search-input::after {
+  
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.form {
+  width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.flx-btn {
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  justify-content: center; 
+  width: 95%;
+}
+
+.btn-title{
+  width: 30%;
+  height: 55%;
+  border-radius: 8px;
+  font-size: 20px; 
+  cursor: pointer; 
+  border-color: #0a367f;
+  border: 2px solid #3664b0; 
+  margin-top: 5%;
+  margin: 1%;
+}
+
+.griid {
+    margin-top: 7%;
+    width: 91%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    position: relative;
+  }
+  
+  .card-people {
+    border-color: black;
+    border-radius: 5px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    margin: 1%;
+    flex-direction: column;
+  }
+  
+  .img-card {
+    max-width: 90%;
+    height: auto;
+  }
+  .name-card{
+    font-size: 23px;
+    margin-top: 4%;
+  }
+  .name-description{
+    font-size: smaller;
+  }
+  
+
