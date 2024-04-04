@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, HashNavigation, Grid } from 'swiper/modules';
+import { Navigation, Pagination, Grid } from 'swiper/modules';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css';
