@@ -1,17 +1,28 @@
 import React from 'react';
 import './App.css'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, HashNavigation, Grid } from 'swiper/modules';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css';
+import 'swiper/css/grid';
+import { MainLayout } from './components/layouts/MainLayout';
+import DataList from './components/UI/DataList'
+import { deputies } from './utils/deputies';
+import { Deputat } from './components/home/Deputat';
 
 function Lend() {
   return (
-    <div className='body'>
-      <img src='https://raw.githubusercontent.com/xxxdenisxxx777xxx/eDniproPrct/main/Group%2013.png' className='img-header' alt='alt1' />
-      <h2 className='text-title'>Знайти депутата за адресою</h2>
+    <MainLayout>
+      <h2 className='text-center font-medium text-[25px] mt-[50px] mb-[0px]'>Знайти депутата за адресою</h2>
+      <label htmlFor="">
       <input
         type='text'
         placeholder='Введіть імʼя депутата'
-        className='search-input'
+        className='search-input mb-6 w-full h-[55px]'
       />
-      <i class="fas fa-search"></i>
+      <i className="fas fa-search"><img src="https://raw.githubusercontent.com/xxxdenisxxx777xxx/eDniproPrct/main/Group.png" className='img-sch' alt="" /></i>
+      </label>
 
       {/* <div class="search-container">
         <input
@@ -21,40 +32,50 @@ function Lend() {
         />
         
       </div> */}
-      <h1 className='text-title'>або за фракцією</h1>
+      <h1 className='text-center font-medium text-[25px] mt-[50px] mb-[15px]'>або за фракцією</h1>
       <br />
-      <div className='flx-btn'>
-        <button className='btn-title'>ПРОПОЗИЦІЯ</button>
-        <button className='btn-title'>ЗА УКРАЇНУ! ЗА ДНІПРО!</button>
-        <button className='btn-title'>ЄВРОПЕЙСЬКА СОЛІДАРНІСТЬ</button>
-        <button className='btn-title'>ГРОМАДСЬКА СИЛА</button>
-        <button className='btn-title'>БЛОК ВІЛКУЛА «УКРАЇНСЬКА ПЕРСПЕКТИВА»</button>
-        <button className='btn-title'>СЛУГА НАРОДУ</button>
+      <div className='grid grid-cols-3 gap-5 mb-10 '>
+        <button className='btn-title min-h-[90px]'>ПРОПОЗИЦІЯ</button>
+        <button className='btn-title min-h-[90px]'>ЗА УКРАЇНУ! ЗА ДНІПРО!</button>
+        <button className='btn-title min-h-[90px]'>ЄВРОПЕЙСЬКА СОЛІДАРНІСТЬ</button>
+        <button className='btn-title min-h-[90px]'>ГРОМАДСЬКА СИЛА</button>
+        <button className='btn-title min-h-[90px]'>БЛОК ВІЛКУЛА «УКРАЇНСЬКА ПЕРСПЕКТИВА»</button>
+        <button className='btn-title min-h-[90px]'>СЛУГА НАРОДУ</button>
       </div>
-      <br />
-      <div className='griid'>
-        <div className='card-people'>
-          <img src="https://raw.githubusercontent.com/xxxdenisxxx777xxx/eDniproPrct/main/Rectangle%206491.png" className='img-card' alt="alt3" />
-          <h1 className='name-card'>Ірина Гуль</h1>
-          <h6 className='name-description'> Слуга народу</h6>
-        </div>
-        <div className='card-people'>
-          <img src="https://raw.githubusercontent.com/xxxdenisxxx777xxx/eDniproPrct/main/5.png" className='img-card' alt="alt3" />
-          <h1 className='name-card'>Ірина Гуль</h1>
-          <h6 className='name-description'> Слуга народу</h6>
-        </div>
-        <div className='card-people'>
-          <img src="https://raw.githubusercontent.com/xxxdenisxxx777xxx/eDniproPrct/main/3.png" className='img-card' alt="alt3" />
-          <h1 className='name-card'>Ірина Гуль</h1>
-          <h6 className='name-description'> Слуга народу</h6>
-        </div>
-        <div className='card-people'>
-          <img src="https://raw.githubusercontent.com/xxxdenisxxx777xxx/eDniproPrct/main/4.png" className='img-card' alt="alt3" />
-          <h1 className='name-card'>Ірина Гуль</h1>
-          <h6 className='name-description'> Слуга народу</h6>
-        </div>
-      </div>
-    </div>
+
+
+
+
+
+      <Swiper
+        slidesPerView={4}
+        grid={{
+          rows: 2,
+        }}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Grid, Pagination, Navigation]}
+        navigation={
+          {
+            nextEl: '.next',
+            prevEl: '.prev',
+          }
+        }
+        className="mySwiper place-content-start"
+
+      >
+
+        {deputies.map(item => <SwiperSlide data-hash={item.id} key={item.id}><Deputat item={item} /></SwiperSlide>)}
+
+
+
+      </Swiper>
+      <button className='next flex justify-center items-center ml-auto w-[200px]'>
+      <img src="https://raw.githubusercontent.com/xxxdenisxxx777xxx/eDniproPrct/main/Arrow%201.png" alt="Arrow" className='absolute mt-[-40px] z-40 w-20' />
+      </button>
+    </MainLayout>
 
   );
 }
